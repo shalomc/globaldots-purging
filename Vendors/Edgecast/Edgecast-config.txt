@@ -1,0 +1,2 @@
+MyToken=mmmmmm-nnnn-zzzz-8888-9999999
+HEX=12345
