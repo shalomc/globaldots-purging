@@ -1,0 +1,2 @@
+Fastly_Key=theSecretAccountAPIKey
+X_Purge_Auth=something-secret
