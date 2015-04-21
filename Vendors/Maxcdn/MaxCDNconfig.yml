@@ -1,0 +1,16 @@
+# Update this file with your alias, token and secret. 
+# On Linux, move to ~/.maxcdn.yml
+# to avoid having to enter this information with each tool run.
+---
+alias: globaldots
+token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+secret: yyyyyyyyyyyyyyyyyyyyyyyyy
+
+# tool specific configurations
+###
+
+# maxcurl
+pretty: true
+
+# maxpurge
+zone: 12345
