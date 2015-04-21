@@ -2,7 +2,7 @@
 @setlocal
 
 :: Sample usage: 
-:: purge-edgecast.bat http://wpc.121E0.edgecastcdn.net/00121E0/winafar/testapi.txt
+:: purge-edgecast.bat http://wpc.121X0.edgecastcdn.net/00121X0/ecfolder/testapi.txt
 :: This file is set up for a specific platform, the Platform variable can also be set to be passed as an input
 
 set ConfigFile=Edgecast-config.txt
