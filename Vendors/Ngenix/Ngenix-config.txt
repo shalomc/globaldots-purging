@@ -1,0 +1,3 @@
+User=me@somedomain.com
+Password=SecretPassword
+Property_Tag=xxxxx-st

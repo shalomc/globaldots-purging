@@ -1,0 +1,2 @@
+http://chopard-st.cdn.ngenix.net/test7.txt
+http://chopard-st.cdn.ngenix.net/test5.txt
