@@ -1,5 +1,9 @@
 <?php
+// Usage: 
+//	php -f purge-leaseweb.php ZoneID  "regular-expression"
 
+// Example: 
+//	php -f purge-leaseweb.php 1352  "/index_kukuki/*"
 // $secret = 'mySecretKey';
 // $customer_number = '1234567890';
 // $zone_id = '1352';
