@@ -19,7 +19,7 @@ set APIendpoint=https://api.ngenix.net
 
 set URL=%1
 
-curl -v  -X POST  -u "%User%:%Password%" -H "Accept: application/json" -H "Content-Type: text/plain" -d "%URL%"  %APIendpoint%/v1/commands/purge/%Property_Tag%
+curl -s  -X POST  -u "%User%:%Password%" -H "Accept: application/json" -H "Content-Type: text/plain" -d "%URL%"  %APIendpoint%/v1/commands/purge/%Property_Tag%
 
 :finish
 echo.
