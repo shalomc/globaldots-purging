@@ -3,10 +3,11 @@
 //	php -f purge-hibernia.php ZoneID  "regular-expression"
 
 // Example: 
-//	php -f purge-hibernia.php 98  "/index_kukuki/*"
+//	php -f purge-hibernia.php 98  "http://hibernia.cdn.test.danidin.net/index2.html"
 // $secret = 'mySecretKey';
 // $customer_id = '1234567890';
-// $zone_id = '98';
+// $site_id = '98';
+
 define("BASE_URL",     "https://portal.hiberniacdn.com");
 
 
@@ -93,8 +94,6 @@ $Login=json_decode($response_string);
 $token=$Login->bearer_token ;
 // echo "\n" ;
 
-$site_id=98;
-$url_to_purge= "http://hibernia.cdn.test.danidin.net/index2.html";
 $site_id = $argv[1];
 $url_to_purge=$argv[2];
 
