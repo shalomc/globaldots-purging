@@ -1,0 +1,3 @@
+# Place the password between double quotes
+Customer=someone@globaldots.com
+Password="my-big-secret"
