@@ -1,0 +1,3 @@
+Usr=shalom@globaldots.com
+Passw=Panda3131
+account=b6g8z3d9
