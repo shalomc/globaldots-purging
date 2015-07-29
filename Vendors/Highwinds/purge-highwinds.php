@@ -4,32 +4,55 @@
 
 // Example: 
 //	php -f purge-highwinds.php 99qaww  "http://highwinds.cdn.test.danidin.net/index2.html"
-// $secret = 'mySecretKey';
-// $customer_id = '1234567890';
-// $account='b6g8z3d9'; 
-
 
 define("BASE_URL",     "https://striketracker3.highwinds.com/api/v1");
 define("BASE_OAUTH_URL",     "https://striketracker3.highwinds.com/auth/token");
 
+$use_account_on_ini_file = TRUE;
+$ini_file="highwinds-config.txt";
 
-$ini_array = parse_ini_file("highwinds-config.txt");
-$customer_id = $ini_array['Usr'] ;
-$secret = $ini_array['Passw'] ;
-// get account as argument to program. The ini file account value 
-// $account= $ini_array['account'] ; 
- 
-$response_string=highwinds_Login($customer_id, $secret)  ; 
-$http_response_code=($GLOBALS['http_status']);
+try {
+	// check if the configuration file is provided
+	if (!file_exists($ini_file) ) {
+		throw new Exception("Configuration file ".$ini_file." not found");
+	}
+	$ini_array = parse_ini_file($ini_file);
+	
+	if ($use_account_on_ini_file) {
+		$account= $ini_array['account'] ;
+		$url_to_purge=$argv[1];
+	} else { 	// get account as argument to program
+		$account = $argv[1];
+		$url_to_purge=$argv[2];
+	}
 
-$Login=json_decode($response_string);
+	$customer_id = $ini_array['Usr'] ;
+	$secret = $ini_array['Passw'] ;
+	 
+	$response_string=highwinds_Login($customer_id, $secret)  ; 
+	$http_response_code=($GLOBALS['http_status']);
+	
+	if ($http_response_code != 200 ) {
+		throw new Exception("Login Error");
+	}
+	$Login=json_decode($response_string);
 
-$token=$Login->access_token ;
+	$token=$Login->access_token ;
 
-$account = $argv[1];
-$url_to_purge=$argv[2];
+	$response_string= highwinds_Purge($url_to_purge, $account, $token) ;
+	$http_response_code=($GLOBALS['http_status']);
+	if ($http_response_code != 200 ) {
+		throw new Exception($response_string);
+	}
 
-echo highwinds_Purge($url_to_purge, $account, $token) ;
+	echo $response_string ; 
+}
+
+//catch exception
+catch(Exception $e) {
+  echo 'Error Message: ' .$e->getMessage();
+}
+
 
 
 // =====================================================================================
