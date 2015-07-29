@@ -1,9 +1,13 @@
 <?php
 // Usage: 
 //	php -f purge-highwinds.php account "url-to-purge"
+// OR if using account in ini file
+//	php -f purge-highwinds.php  "url-to-purge"
 
-// Example: 
+
+// Examples: 
 //	php -f purge-highwinds.php 99qaww  "http://highwinds.cdn.test.danidin.net/index2.html"
+//	php -f purge-highwinds.php         "http://highwinds.cdn.test.danidin.net/index2.html"
 
 define("BASE_URL",     "https://striketracker3.highwinds.com/api/v1");
 define("BASE_OAUTH_URL",     "https://striketracker3.highwinds.com/auth/token");
